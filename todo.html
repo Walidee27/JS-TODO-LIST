@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste de Tâches</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <h1><a href="index.html" id="main-title">Liste de Tâches</a></h1>
+    <div class="form-container">
+        <label for="add-todo">Nom de la tâche : </label>
+        <input id="add-todo" type="text" placeholder="Ajouter une nouvelle tâche">
+        <label for="dueDate">Date limite : </label>
+        <input id="dueDate" type="date">
+        <button onclick="handleAddTodo()">Ajouter la tâche</button>
+    </div>
+    <div class="todo-container">
+        <div class="filters">
+            <label for="see-completed-todos">Voir les tâches terminées : <input id="see-completed-todos" type="checkbox" onchange="renderTodos()"></input></label>
+        </div>
+        <div class="todo-tile">
+            <table id="todo-list">
+                <tr class="table-header">
+                    <th class="task-row">Tâche</th>
+                    <th>Date limite</th>
+                    <th>Etat</th>
+                    <th>Actions</th>
+                </tr>
+                <tbody id="todo-list-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Boutons pour Importer/Exporter CSV -->
+    <div class="csv-actions">
+        <button onclick="exportCSV()">Exporter en CSV</button>
+        <input type="file" accept=".csv" onchange="importCSV(event)" />
+    </div>
+</body>
+<script src="js/todo_with_localStorage.js"></script>
+</html>
